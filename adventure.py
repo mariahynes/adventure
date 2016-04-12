@@ -22,5 +22,12 @@ while True:
             print "to the %s is a %s" %(k, possible_location)
             valid_directions[k] = possible_position
 
-    direction = raw_input("Which direction do you want to go?\n")
-    position = valid_directions[direction]
+    chosen_direction = None
+    while chosen_direction == None:
+        direction = raw_input("Which direction do you want to go?\n")
+        chosen_direction = valid_directions.get(direction)
+
+        if chosen_direction == None:
+            print "Please choose a valid direction!"
+        else:
+            position = valid_directions[direction]
